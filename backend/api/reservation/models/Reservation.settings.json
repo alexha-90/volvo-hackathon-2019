@@ -17,9 +17,6 @@
     "model": {
       "type": "string"
     },
-    "available": {
-      "type": "boolean"
-    },
     "start_time": {
       "type": "date"
     },

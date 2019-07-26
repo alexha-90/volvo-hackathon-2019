@@ -24,8 +24,8 @@ class DatePicker extends Component {
           timeOfDay: ""
         }
       },
-      startDate: null,
-      endDate: null,
+      startDate: "",
+      endDate: "",
       tooManyDaysWarning: false
     }
   }
@@ -81,7 +81,9 @@ class DatePicker extends Component {
 
   render() {
     const localize = momentLocalizer(moment);
-    console.log(this.state);
+    const startDate = this.state.startDate.length > 0 ? this.state.startDate.slice(1, this.state.startDate.indexOf("T")) : "";
+    const endDate = this.state.endDate.length > 0 ? this.state.endDate.slice(1, this.state.endDate.indexOf("T")) : "";
+
     return (
       <>
         <div className="examples">
@@ -98,7 +100,7 @@ class DatePicker extends Component {
             <h4>Tip: hold mouse down and drag across multiple cells</h4>
             <ul>
               <li>
-                Selected start date: {this.state.startDate}
+                Selected start date: {startDate}
                 <div>
                   <div>
                     <input type="radio" id="morningStart" name="start-time-of-day"
@@ -113,7 +115,7 @@ class DatePicker extends Component {
                 </div>
               </li>
               <li>
-                Selected end date: {this.state.endDate}
+                Selected end date: {endDate}
                 <div>
                   <div>
                     <input type="radio" id="morningEnd" name="end-time-of-day"

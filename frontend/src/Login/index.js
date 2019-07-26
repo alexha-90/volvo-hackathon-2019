@@ -20,7 +20,7 @@ class Login extends Component {
     loginUser(this.state.email, this.state.password)
       .then(res => { res.json()
         .then(data => {
-          this.props.receiveAdminAccounts(data);
+          this.props.receiveAccountInfo(data);
         })
       })
   };

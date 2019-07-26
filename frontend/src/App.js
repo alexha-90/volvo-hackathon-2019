@@ -3,7 +3,7 @@ import Strapi from 'strapi-sdk-javascript/build/main';
 import CarPicker from './VehiclePicker';
 import { convertStrToDate } from './util/DateFormat';
 
-import {getVehicles, submitReservation} from './api';
+import {getVehicles, submitReservationForReview} from './api';
 import DatePicker from "./DatePicker";
 import AdminPanel from "./AdminPanel";
 import Login from "./Login";
@@ -16,7 +16,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      adminAccounts: [],
+      accountInfo: [],
       submittedLogin: false,
       loadingReservationData: true,
       vehicleData: [],
@@ -44,8 +44,8 @@ class App extends Component {
       })
   }
 
-  receiveAdminAccounts = (accounts) => {
-    this.setState({ adminAccounts: accounts, submittedLogin: true })
+  receiveAccountInfo = (accounts) => {
+    this.setState({ accountInfo: accounts, submittedLogin: true })
   };
 
   onSelectCalendarDates = (requested) => {
@@ -91,40 +91,15 @@ class App extends Component {
   };
 
   submitReservation = (vehicle) => {
-    console.log(vehicle);
-    const name = prompt("What is your full name?");
-    const email = prompt("What is your email?");
-    const submissionObj = {
-      id: "string",
-      start_time: this.state.reservationRequest.start.date,
-      end_time: this.state.reservationRequest.end.date,
-      admin: "ccs.testcars@gmail.com",
-      health: "green",
-      ongoing: true,
-      user: {
-        schema: {
-          id: uuidv1(),
-          email: email,
-          name: name
-        }
-      },
-      vehicle: {
-        schema: {
-          admin: "ccs.testcars@gmail.com",
-          vin: vehicle.Vin,
-          latitude: 0,
-          longitude: 0,
-          model: vehicle.Model,
-          year: vehicle.Year
-        }
-      }
+    const obj = {
+      model: vehicle.Model,
+      // start_time: this.state.reservationRequest.start.date,
+      // end_time: this.state.reservationRequest.start.date,
+      vin: vehicle.Vin,
+      start_time_of_day: this.state.reservationRequest.start.timeOfDay,
+      end_time_of_day: this.state.reservationRequest.end.timeOfDay,
     };
-
-    console.log(submissionObj);
-
-    debugger;
-
-    submitReservation(submissionObj);
+    submitReservationForReview(obj);
   };
 
 
@@ -146,10 +121,11 @@ class App extends Component {
     if (!this.state.submittedLogin) {
       return (
         <main className='content-container'>
-          <Login receiveAdminAccounts={this.receiveAdminAccounts}/>
+          <Login receiveAccountInfo={this.receiveAccountInfo}/>
         </main>
       )
-    } else if (1===1) {
+    } else if (this.state.accountInfo.Name === " ") {
+      // FIXME: temp hack needed. Since valid Volvo OnCall account will have an associated userEmail
       return (
         <main className='content-container'>
           <AdminPanel vehicleData={this.state.vehicleData}/>

@@ -22,8 +22,21 @@ export const getVehicles = () => {
   )
 };
 
+export const submitReservationForReview = (obj) => {
+  return fetch(
+    `http://localhost:1337/reservations`,
+    {
+      method: 'POST',
+      model: "XC60",
+      body: obj
+      // ...obj
+      // body: obj
+    }
+  )
+};
 
-export const submitReservation = () => {
+
+export const submitReservationForOncall = () => {
   return fetch(
     `https://smartfleet.ngrok.io/portal/vehicles`,
     {
