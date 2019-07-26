@@ -32,3 +32,7 @@ yarn-error.log*
 # snapshots
 __snapshots__
 **/*.spec.js.snap
+
+
+frontend/node_modules/
+frontend/.idea/

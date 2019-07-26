@@ -10,9 +10,9 @@ class Vehicles extends Component {
 
   render() {
     return (
-      <div>
+      <>
         vehiclesp alceholder
-      </div>
+      </>
     )
   }
 }

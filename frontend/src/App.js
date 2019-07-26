@@ -144,7 +144,11 @@ class App extends Component {
     console.log('reservationData: ', this.state.reservationData);
     console.log('vehicleData: ', this.state.vehicleData);
     if (1===1) {
-      return <AdminPanel />
+      return (
+        <main className='content-container'>
+          <AdminPanel />
+        </main>
+      )
     }
     if (!this.state.submittedLogin) {
       return (

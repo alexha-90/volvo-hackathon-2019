@@ -34,3 +34,17 @@ export const submitReservation = () => {
     }
   )
 };
+
+//================ ADMIN PANEL API CALLS ====================//
+
+export const getUsers = () => {
+  return fetch(
+    `https://smartfleet.ngrok.io/portal/users`,
+    {
+      method: 'GET',
+      headers: {
+        Authorization: 'Basic ' + btoa('ccs.testcars@gmail.com:!Hse123#')
+      }
+    }
+  )
+};

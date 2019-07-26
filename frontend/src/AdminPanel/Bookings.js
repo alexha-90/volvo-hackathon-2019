@@ -10,9 +10,9 @@ class AdminPanel extends Component {
 
   render() {
     return (
-      <div>
+      <>
         bookings palceholder
-      </div>
+      </>
     )
   }
 }
