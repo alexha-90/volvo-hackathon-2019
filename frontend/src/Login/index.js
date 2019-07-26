@@ -56,7 +56,7 @@ class Login extends Component {
           className="ctaButton"
           onClick={this.onSubmit}>Login</button>
         <div style={{marginTop: "50px"}}>
-          {this.state.errMsg ? this.state.errMsg : ""}
+          {this.state.errMsg ? "Error occurred while logging in" : ""}
         </div>
       </div>
     )

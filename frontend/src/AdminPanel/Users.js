@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import "./users.css";
 //============================================================================//
 
 
@@ -12,18 +13,26 @@ class Users extends Component {
     if (this.props.users.length > 0) {
       const users = [];
       for (const [index, user] of this.props.users.entries()) {
-        users.push(
-          <li style={{marginBottom: "10px"}} key={index}>
-            <div>Name: {user.Name}</div>
-            <div>Email: {user.userEmail}</div>
-          </li>
-        )
+        if (index > 0) { // FIXME: hack since first entry is blank
+          users.push(
+            <tr style={{marginBottom: "10px"}} key={index}>
+              <td>Name: {user.Name}</td>
+              <td>Email: {user.userEmail}</td>
+            </tr>
+          )
+        }
       }
       return (
         <>
-          <ul>
-            {users}
-          </ul>
+          <table>
+            <tr style={{backgroundColor: "lightblue", color: "white"}}>
+              <th>Name</th>
+              <th>Email</th>
+            </tr>
+            <tbody>
+              {users}
+            </tbody>
+          </table>
         </>
       )
     } else {
