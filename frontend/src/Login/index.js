@@ -10,6 +10,7 @@ class Login extends Component {
     this.state = {
       email: "",
       password: "",
+      errMsg: ""
     }
   }
 
@@ -23,6 +24,9 @@ class Login extends Component {
         .then(data => {
           this.props.receiveAccountInfo(data);
         })
+      })
+      .catch(err => {
+        this.setState({ errMsg: JSON.stringify(err)})
       })
   };
 
@@ -48,6 +52,9 @@ class Login extends Component {
         <button
           className="ctaButton"
           onClick={this.onSubmit}>Login</button>
+        <div style={{marginTop: "50px"}}>
+          {this.state.errMsg ? this.state.errMsg : ""}
+        </div>
       </div>
     )
   }
