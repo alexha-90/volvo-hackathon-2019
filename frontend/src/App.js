@@ -107,14 +107,16 @@ class App extends Component {
       admin: this.state.accountInfo[0].Admin,
       startTime: this.state.reservationRequest.start.date.toISOString(),
       endTime: this.state.reservationRequest.end.date.toISOString(),
-      // health: ,
-      // status: ,
-      user: {
-        userEmail: this.state.accountInfo[0].userEmail,
-        vehicle: {
-          vin: vehicle.Vin
-        }
-      }
+      health: "green",
+      status: "pending",
+      email: this.state.accountInfo[0].userEmail,
+
+      // user: {
+      //   userEmail: this.state.accountInfo[0].userEmail,
+      //   vehicle: {
+      //     vin: vehicle.Vin
+      //   }
+      // }
     };
 
     console.log(newObj);
@@ -137,8 +139,8 @@ class App extends Component {
   };
 
   render() {
-    // console.log('reservationData: ', this.state.reservationData);
-    // console.log('vehicleData: ', this.state.vehicleData);
+    console.log('reservationData: ', this.state.reservationData);
+    console.log('vehicleData: ', this.state.vehicleData);
     if (!this.state.submittedLogin) {
       return (
         <main className='content-container'>

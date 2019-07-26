@@ -26,9 +26,6 @@
     "end_time_of_day": {
       "type": "string"
     },
-    "approved": {
-      "type": "boolean"
-    },
     "name": {
       "type": "string"
     },
@@ -45,6 +42,12 @@
       "type": "string"
     },
     "startTime": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "health": {
       "type": "string"
     }
   }
