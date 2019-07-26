@@ -95,7 +95,7 @@ class Bookings extends Component {
             <div>Reserved by: {booking.User.Name}</div>
             <div>Checked out: {booking.startTime}</div>
             <div>Returned: {booking.endTime}</div>
-            <div>Odometer: {booking.Vehicle.Odometer / 0.000621371} miles</div>
+            <div>Odometer: {Math.floor(booking.Vehicle.Odometer * 0.000621371)} miles</div>
             <div>Health: <span style={{color: booking.health}}>{booking.health}</span></div>
           </li>
         )

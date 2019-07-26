@@ -114,7 +114,7 @@ class App extends Component {
       email: this.state.accountInfo[0].userEmail,
       vin: vehicle.Vin
     };
-    // strapi.createEntry("reservations", newObj);
+    strapi.createEntry("reservations", newObj);
     submitReservationForReview(newObj);
   };
 
