@@ -22,6 +22,18 @@ export const getVehicles = () => {
   )
 };
 
+export const getBookings = () => {
+  return fetch(
+    `https://smartfleet.ngrok.io/portal/bookings`,
+    {
+      method: 'GET',
+      headers: {
+        Authorization: 'Basic ' + btoa('ccs.testcars@gmail.com:!Hse123#')
+      }
+    }
+  )
+};
+
 // export const submitReservationForReview = (obj) => {
 //   return fetch(
 //     `http://localhost:1337/testcontents`,

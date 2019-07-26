@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Strapi from 'strapi-sdk-javascript/build/main';
 import CarPicker from './VehiclePicker';
 
-import {getVehicles, submitReservationForReview} from './api';
+import {getVehicles, getBookings, submitReservationForReview} from './api';
 import DatePicker from "./DatePicker";
 import AdminPanel from "./AdminPanel";
 import Login from "./Login";
@@ -21,6 +21,7 @@ class App extends Component {
       loadingReservationData: true,
       vehicleData: [],
       reservationData: [],
+      bookingData: [],
       reservationRequest: [],
       globalError: false,
       availableVehicles: []
@@ -32,7 +33,7 @@ class App extends Component {
       .then(vehicles => {vehicles.json()
         .then(vehicleData => {
           this.setState({ vehicleData: vehicleData });
-          return strapi.getEntries("reservations");
+          return [] //strapi.getEntries("reservations");
         })
         .then(reservationData => {
           this.setState({ reservationData: reservationData, loadingReservationData: false });
@@ -41,6 +42,16 @@ class App extends Component {
       .catch(err => {
         console.error(err);
         this.setState({globalError: true, loadingReservationData: false });
+      })
+    getBookings()
+      .then(bookings => {bookings.json()
+        .then(bookingData => {
+          this.setState({ bookingData: bookingData })
+        })
+      })
+      .catch(err => {
+        console.error(err);
+        this.setState({globalError: true });
       })
   }
 
@@ -123,6 +134,8 @@ class App extends Component {
   render() {
     console.log('reservationData: ', this.state.reservationData);
     console.log('vehicleData: ', this.state.vehicleData);
+    console.log('bookingData: ', this.state.bookingData);
+
     // return (
     //   <>
     //     <Header/>
@@ -134,7 +147,6 @@ class App extends Component {
     //     </main>
     //   </>
     // )
-
 
     if (!this.state.submittedLogin) {
       return (
@@ -154,6 +166,7 @@ class App extends Component {
             <AdminPanel
               vehicleData={this.state.vehicleData}
               reservationData={this.state.reservationData}
+              bookingData={this.state.bookingData}
             />
           </main>
         </>
