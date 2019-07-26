@@ -39,21 +39,24 @@ export const submitReservationForReview = (obj) => {
     `http://localhost:1337/reservations`,
     {
       method: 'POST',
-      model: "XC60",
-      body: obj
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(obj)
     }
   )
 };
 
-
-export const submitApprovedReservation = () => {
+export const submitApprovedReservation = (submitObj) => {
   return fetch(
-    `https://smartfleet.ngrok.io/portal/vehicles`,
+    `https://smartfleet.ngrok.io/portal/bookings`,
     {
       method: 'POST',
       headers: {
+        'Content-Type': 'application/json',
         Authorization: 'Basic ' + btoa('ccs.testcars@gmail.com:!Hse123#')
-      }
+      },
+      body: JSON.stringify(submitObj)
     }
   )
 };

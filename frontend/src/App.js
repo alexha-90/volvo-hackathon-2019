@@ -56,7 +56,7 @@ class App extends Component {
     /*
     for (let i = 0; i < reservationData.length; i++) {
       const iStartDate = convertStrToDate(reservationData[i].start_time);
-      const iEndDate = convertStrToDate(reservationData[i].end_time);
+      const iEndDate = convertStrToDate(reservationData[i].endTime);
 
       // descr: requested START is ok if
       //    1) After iStartDate OR
@@ -96,9 +96,9 @@ class App extends Component {
     // const obj = {
     //   model: vehicle.Model,
     //   // start_time: this.state.reservationRequest.start.date,
-    //   // end_time: this.state.reservationRequest.start.date,
+    //   // endTime: this.state.reservationRequest.start.date,
     //   vin: vehicle.Vin,
-    //   start_time_of_day: this.state.reservationRequest.start.timeOfDay,
+    //   startTime: this.state.reservationRequest.start.timeOfDay,
     //   end_time_of_day: this.state.reservationRequest.end.timeOfDay,
     // };
 
@@ -120,7 +120,6 @@ class App extends Component {
     console.log(newObj);
     debugger;
 
-
     submitReservationForReview(newObj);
   };
 
@@ -138,8 +137,8 @@ class App extends Component {
   };
 
   render() {
-    console.log('reservationData: ', this.state.reservationData);
-    console.log('vehicleData: ', this.state.vehicleData);
+    // console.log('reservationData: ', this.state.reservationData);
+    // console.log('vehicleData: ', this.state.vehicleData);
     if (!this.state.submittedLogin) {
       return (
         <main className='content-container'>

@@ -17,12 +17,6 @@
     "model": {
       "type": "string"
     },
-    "start_time": {
-      "type": "date"
-    },
-    "end_time": {
-      "type": "date"
-    },
     "vin": {
       "type": "string"
     },
@@ -39,6 +33,18 @@
       "type": "string"
     },
     "email": {
+      "type": "string"
+    },
+    "uuid": {
+      "type": "string"
+    },
+    "admin": {
+      "type": "string"
+    },
+    "endTime": {
+      "type": "string"
+    },
+    "startTime": {
       "type": "string"
     }
   }

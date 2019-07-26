@@ -15,9 +15,21 @@ class Bookings extends Component {
   };
 
   onClickApprove = (reservation) => {
-
-
-    submitApprovedReservation(reservation)
+    const submitObj = {
+      admin: reservation.admin,
+      startTime: reservation.startTime,
+      endTime: reservation.endTime,
+      id: reservation.uuid,
+      status: "approved",
+      health: "green",
+      user: {
+        userEmail: reservation.email
+      },
+      vehicle: {
+        vin: reservation.vin
+      }
+    };
+    submitApprovedReservation(submitObj)
   };
 
   render() {
@@ -28,10 +40,10 @@ class Bookings extends Component {
           <li style={{marginBottom: "10px"}} key={index}>
             <div>Name: {reservation.name}</div>
             <div>Start date: {reservation.start_time}</div>
-            <div>Start time of day: {reservation.start_time_of_day}</div>
-            <div>End date: {reservation.end_time}</div>
+            <div>Start time of day: {reservation.startTime}</div>
+            <div>End date: {reservation.endTime}</div>
             <div>End time of day: {reservation.end_time_of_day}</div>
-            <div>Email: {reservation.end_time} {reservation.end_time_of_day}</div>
+            <div>Email: {reservation.email}</div>
             <button onClick={() => this.onClickDeny(reservation)}>Deny</button>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button onClick={() => this.onClickApprove(reservation)}>Approve</button>
