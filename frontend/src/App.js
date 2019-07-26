@@ -45,7 +45,9 @@ class App extends Component {
   }
 
   receiveAccountInfo = (accounts) => {
-    this.setState({ accountInfo: accounts, submittedLogin: true })
+    this.setState({ accountInfo: accounts}, () => {
+      this.setState({ submittedLogin: true })
+    })
   };
 
   onSelectCalendarDates = (requested) => {
@@ -91,15 +93,35 @@ class App extends Component {
   };
 
   submitReservation = (vehicle) => {
-    const obj = {
-      model: vehicle.Model,
-      // start_time: this.state.reservationRequest.start.date,
-      // end_time: this.state.reservationRequest.start.date,
-      vin: vehicle.Vin,
-      start_time_of_day: this.state.reservationRequest.start.timeOfDay,
-      end_time_of_day: this.state.reservationRequest.end.timeOfDay,
+    // const obj = {
+    //   model: vehicle.Model,
+    //   // start_time: this.state.reservationRequest.start.date,
+    //   // end_time: this.state.reservationRequest.start.date,
+    //   vin: vehicle.Vin,
+    //   start_time_of_day: this.state.reservationRequest.start.timeOfDay,
+    //   end_time_of_day: this.state.reservationRequest.end.timeOfDay,
+    // };
+
+    const newObj = {
+      id: uuidv1(),
+      admin: this.state.accountInfo[0].Admin,
+      startTime: this.state.reservationRequest.start.date.toISOString(),
+      endTime: this.state.reservationRequest.end.date.toISOString(),
+      // health: ,
+      // status: ,
+      user: {
+        userEmail: this.state.accountInfo[0].userEmail,
+        vehicle: {
+          vin: vehicle.Vin
+        }
+      }
     };
-    submitReservationForReview(obj);
+
+    console.log(newObj);
+    debugger;
+
+
+    submitReservationForReview(newObj);
   };
 
 
@@ -124,8 +146,8 @@ class App extends Component {
           <Login receiveAccountInfo={this.receiveAccountInfo}/>
         </main>
       )
-    } else if (this.state.accountInfo.userEmail === "ccs.testcars@gmail.com") {
-      // FIXME: not working
+    } else if (this.state.accountInfo[0].userEmail === this.state.accountInfo[0].Admin) {
+      // descr: authenticated as admin
       return (
         <main className='content-container'>
           <AdminPanel

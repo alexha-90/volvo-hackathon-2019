@@ -11,10 +11,12 @@ class Bookings extends Component {
   }
 
   onClickDeny = (reservation) => {
-
+    // TBD
   };
 
   onClickApprove = (reservation) => {
+
+
     submitApprovedReservation(reservation)
   };
 
