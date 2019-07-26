@@ -2,19 +2,31 @@ import React, { Component } from 'react'
 //============================================================================//
 
 
-class Vehicles extends Component {
+class VehiclePicker extends Component {
   constructor() {
     super();
-    this.state = {}
+    this.state = {
+    }
   }
 
   render() {
+    const vehicles = [];
+    for (const [index, vehicle] of this.props.vehicles.entries()) {
+      vehicles.push(
+        <li style={{marginBottom: "10px"}} key={vehicle.Vin}>
+          <div>{vehicle.Year} {vehicle.Model} {vehicle.Trim} {vehicle.Engine}</div>
+          <div>VIN: {vehicle.Vin}</div>
+        </li>
+      )
+    }
     return (
       <>
-        vehiclesp alceholder
+        <ul>
+          {vehicles}
+        </ul>
       </>
     )
   }
 }
 
-export default Vehicles;
+export default VehiclePicker;

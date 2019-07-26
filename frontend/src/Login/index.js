@@ -26,7 +26,6 @@ class Login extends Component {
   };
 
   render() {
-    console.log(this.state);
     return (
       <>
         <label htmlFor="email">Email:</label>

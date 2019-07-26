@@ -31,9 +31,6 @@ class VehiclePicker extends Component {
       </>
     )
   }
-
-
-
 }
 
 export default VehiclePicker;

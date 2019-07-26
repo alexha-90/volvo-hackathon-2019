@@ -40,7 +40,7 @@ class AdminPanel extends Component {
     if (this.state.contentToDisplay === "bookings") {
       return (<Bookings/>)
     } else if (this.state.contentToDisplay === "vehicles") {
-      return (<Vehicles/>)
+      return (<Vehicles vehicles={this.props.vehicleData}/>)
     } else if (this.state.contentToDisplay === "users") {
       return (<Users users={this.state.users}/>)
     }

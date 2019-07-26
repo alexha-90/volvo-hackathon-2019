@@ -143,17 +143,16 @@ class App extends Component {
   render() {
     console.log('reservationData: ', this.state.reservationData);
     console.log('vehicleData: ', this.state.vehicleData);
-    if (1===1) {
-      return (
-        <main className='content-container'>
-          <AdminPanel />
-        </main>
-      )
-    }
     if (!this.state.submittedLogin) {
       return (
         <main className='content-container'>
           <Login receiveAdminAccounts={this.receiveAdminAccounts}/>
+        </main>
+      )
+    } else if (1===1) {
+      return (
+        <main className='content-container'>
+          <AdminPanel vehicleData={this.state.vehicleData}/>
         </main>
       )
     } else if (this.state.loadingReservationData) {
