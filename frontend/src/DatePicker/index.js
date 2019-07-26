@@ -27,7 +27,8 @@ class DatePicker extends Component {
       },
       startDate: "",
       endDate: "",
-      tooManyDaysWarning: false
+      tooManyDaysWarning: false,
+      showButton: true
     }
   }
 
@@ -50,6 +51,7 @@ class DatePicker extends Component {
   };
 
   onClickSubmit = () => {
+    this.setState({ showButton: false })
     this.props.onSelectCalendarDates(this.state.reservation);
   };
 
@@ -139,6 +141,7 @@ class DatePicker extends Component {
             </span>
             <button
               className="see-vehicles-btn"
+              style={{display: this.state.showButton ? "block" : "none"}}
               disabled={
                 !this.state.reservation.start.date ||
                 !this.state.reservation.start.timeOfDay ||

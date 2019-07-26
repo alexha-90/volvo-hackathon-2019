@@ -1,0 +1,37 @@
+.vehicle-ul {
+    list-style: none;
+}
+
+.vehicle-li {
+    display: inline-block;
+    border: 1px solid green;
+    border-radius: 5px;
+    width: 310px;
+    padding: 10px;
+}
+
+.vehicle-li:nth-child(odd) {
+    margin-right: 10px;
+}
+
+.heading {
+    font-size: 1.1em;
+}
+
+.heading > span{
+    font-size: 1.3em;
+}
+
+.vin {
+    font-size: 12px;
+}
+
+.submit-button {
+    width: 285px;
+    border-radius: 5px;
+}
+
+.submit-button:hover {
+    background-color: green;
+    color: white;
+}

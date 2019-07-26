@@ -3,8 +3,10 @@
 }
 
 .reservation-list {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
     display: inline-block;
-    padding-left: 0;
+    padding: 12px 0;
 }
 
 .reservation-list li {
@@ -19,11 +21,13 @@
 
 .see-vehicles-btn {
     width: 500px;
-    margin-top: 24px;
+    height: 30px;
+    font-size: 1.25em;
     border-radius: 20px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     background-color: green;
     color: white;
+    padding-left: 20px;
 }
 
 .see-vehicles-btn:disabled {
