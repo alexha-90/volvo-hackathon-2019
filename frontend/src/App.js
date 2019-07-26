@@ -33,7 +33,7 @@ class App extends Component {
       .then(vehicles => {vehicles.json()
         .then(vehicleData => {
           this.setState({ vehicleData: vehicleData });
-          return [] //strapi.getEntries("reservations");
+          return strapi.getEntries("reservations");
         })
         .then(reservationData => {
           this.setState({ reservationData: reservationData, loadingReservationData: false });

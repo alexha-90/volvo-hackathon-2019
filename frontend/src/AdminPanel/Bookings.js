@@ -70,8 +70,8 @@ class Bookings extends Component {
         reservations.push(
           <li style={{marginBottom: "10px"}} key={index}>
             <div>Name: {reservation.name}</div>
-            <div>Start date: {reservation.start_time}</div>
-            <div>Start time of day: {reservation.startTime}</div>
+            <div>Start time: {reservation.startTime}</div>
+            <div>Start time of day: {reservation.start_time_of_day}</div>
             <div>End date: {reservation.endTime}</div>
             <div>End time of day: {reservation.end_time_of_day}</div>
             <div>Email: {reservation.email}</div>
