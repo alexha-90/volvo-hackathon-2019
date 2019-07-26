@@ -3,8 +3,9 @@ import moment from "moment"
 import { Calendar, momentLocalizer } from "react-big-calendar";
 
 import 'react-big-calendar/lib/sass/styles.scss'
-import './styles.scss'
-import './prism.scss'
+import './styles.scss';
+import './prism.scss';
+import './index.css';
 
 import { myEventsList } from "./newEvents";
 //============================================================================//
@@ -97,17 +98,18 @@ class DatePicker extends Component {
               startAccessor="start"
               endAccessor="end"
             />
-            <h4>Tip: hold mouse down and drag across multiple cells</h4>
-            <ul>
+            <h6>Tip: hold mouse down and drag across multiple cells</h6>
+            <br/>
+            <ul className="reservation-list">
               <li>
                 Selected start date: {startDate}
                 <div>
-                  <div>
+                  <div className="radio-button">
                     <input type="radio" id="morningStart" name="start-time-of-day"
                            value="morning" onChange={(e) => this.onToggleStartTimeOfDay(e)}/>
                       <label htmlFor="morningStart">Morning</label>
                   </div>
-                  <div>
+                  <div className="radio-button">
                     <input type="radio" id="afternoonStart" name="start-time-of-day"
                            value="afternoon" onChange={(e) => this.onToggleStartTimeOfDay(e)}/>
                       <label htmlFor="afternoonStart">Afternoon</label>
@@ -117,12 +119,12 @@ class DatePicker extends Component {
               <li>
                 Selected end date: {endDate}
                 <div>
-                  <div>
+                  <div className="radio-button">
                     <input type="radio" id="morningEnd" name="end-time-of-day"
                            value="morning" onChange={(e) => this.onToggleEndTimeOfDay(e)}/>
                     <label htmlFor="morningEnd">Morning</label>
                   </div>
-                  <div>
+                  <div className="radio-button">
                     <input type="radio" id="afternoonEnd" name="end-time-of-day"
                            value="afternoon" onChange={(e) => this.onToggleEndTimeOfDay(e)}/>
                     <label htmlFor="afternoonEnd">Afternoon</label>
@@ -136,6 +138,7 @@ class DatePicker extends Component {
               : ""}
             </span>
             <button
+              className="see-vehicles-btn"
               disabled={
                 !this.state.reservation.start.date ||
                 !this.state.reservation.start.timeOfDay ||

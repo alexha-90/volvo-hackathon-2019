@@ -130,6 +130,16 @@ class App extends Component {
   };
 
   render() {
+    return (
+      <>
+        <Header/>
+        <main className='content-container'>
+          <DatePicker onSelectCalendarDates={this.onSelectCalendarDates}/>
+          {this.showCarPicker()}
+        </main>
+      </>
+    )
+
     // console.log('reservationData: ', this.state.reservationData);
     // console.log('vehicleData: ', this.state.vehicleData);
     if (!this.state.submittedLogin) {

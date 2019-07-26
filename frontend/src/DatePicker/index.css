@@ -1,0 +1,33 @@
+.reservation-list {
+    list-style: none;
+}
+
+.reservation-list {
+    display: inline-block;
+    padding-left: 0;
+}
+
+.reservation-list li {
+    display: inline-block;
+    width: 50%;
+}
+
+.radio-button {
+    display: inline-block;
+    margin-right: 12px;
+}
+
+.see-vehicles-btn {
+    width: 500px;
+    margin-top: 24px;
+    border-radius: 20px;
+    margin-bottom: 50px;
+    background-color: green;
+    color: white;
+}
+
+.see-vehicles-btn:disabled {
+    background-color: darkgray;
+    color: white;
+    cursor: not-allowed;
+}
