@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/reservations",
+      "handler": "Reservation.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/reservations/count",
+      "handler": "Reservation.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/reservations/:id",
+      "handler": "Reservation.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/reservations",
+      "handler": "Reservation.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/reservations/:id",
+      "handler": "Reservation.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/reservations/:id",
+      "handler": "Reservation.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

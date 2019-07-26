@@ -1,0 +1,4 @@
+/* prevent closing hack. Always open */
+.react-datetimerange-picker__calendar--closed, .react-datetimerange-picker__clock--closed {
+    display: block;
+}

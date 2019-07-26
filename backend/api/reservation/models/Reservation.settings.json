@@ -1,0 +1,39 @@
+{
+  "connection": "default",
+  "collectionName": "vehicles",
+  "info": {
+    "name": "reservation",
+    "description": "Description of reservation"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
+    "comment": ""
+  },
+  "attributes": {
+    "model": {
+      "type": "string"
+    },
+    "available": {
+      "type": "boolean"
+    },
+    "start_time": {
+      "type": "date"
+    },
+    "end_time": {
+      "type": "date"
+    },
+    "vin": {
+      "type": "string"
+    },
+    "start_time_of_day": {
+      "type": "string"
+    },
+    "end_time_of_day": {
+      "type": "string"
+    }
+  }
+}
