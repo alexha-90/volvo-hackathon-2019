@@ -14,16 +14,21 @@ class VehiclePicker extends Component {
     const vehicles = [];
     for (const [index, vehicle] of this.props.vehicles.entries()) {
       vehicles.push(
-        <li style={{marginBottom: "10px"}} key={index}>
-          <div>{vehicle.Year} {vehicle.Model} {vehicle.Trim} {vehicle.Engine}</div>
-          <div>VIN: {vehicle.Vin}</div>
-          <img width="100px" height= "100px" src={vehicle.Image} alt={vehicle.Model} />
+        <li className="vehicle-item-admin" key={index}>
+          <div className="vehicle-heading-admin">
+            <h3 style={{display: "inline"}}>{index+1}.&nbsp;</h3>
+            {vehicle.Year} Volvo {vehicle.Model} {vehicle.Trim} - {vehicle.Engine}
+          </div>
+          <div className="vehicle-vin-admin">VIN: {vehicle.Vin}</div>
+          <img
+            className="vehicle-image-admin"
+            width="120px" height= "60px" src={vehicle.Image} alt={vehicle.Model} />
         </li>
       )
     }
     return (
       <>
-        <ul>
+        <ul className="vehicle-ul">
           {vehicles}
         </ul>
       </>

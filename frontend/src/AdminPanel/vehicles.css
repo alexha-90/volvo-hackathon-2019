@@ -1,28 +1,18 @@
 .vehicle-ul {
     list-style: none;
+    margin-top: 24px;
+    padding-left: 0;
 }
 
-.vehicle-li {
+.vehicle-heading-admin, .vehicle-vin-admin {
     display: inline-block;
-    border: 1px solid green;
-    border-radius: 5px;
-    width: 310px;
-    padding: 10px;
 }
 
-.vehicle-li:nth-child(odd) {
-    margin-right: 10px;
+.vehicle-item-admin {
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
 }
 
-.heading {
-    font-size: 1.1em;
+.vehicle-image-admin {
+    margin-left: 100px;
 }
-
-.heading > span{
-    font-size: 1.3em;
-}
-
-.vin {
-    font-size: 12px;
-}
-

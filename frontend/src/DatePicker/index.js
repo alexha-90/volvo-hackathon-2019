@@ -101,6 +101,11 @@ class DatePicker extends Component {
               endAccessor="end"
             />
             <h6>Tip: hold mouse down and drag across multiple cells</h6>
+            <span style={{color: "orange", fontSize: "15px"}}>
+            {this.state.tooManyDaysWarning ?
+              "You Selected more than the limited four consecutive (4) days. Must be exception case. Proceed w/ caution"
+              : ""}
+            </span>
             <br/>
             <ul className="reservation-list">
               <li>
@@ -134,11 +139,6 @@ class DatePicker extends Component {
                 </div>
               </li>
             </ul>
-            <span style={{color: "orange"}}>
-            {this.state.tooManyDaysWarning ?
-              "You Selected more than the limited four consecutive (4) days. Must be exception case. Proceed w/ caution"
-              : ""}
-            </span>
             <button
               className="see-vehicles-btn"
               style={{display: this.state.showButton ? "block" : "none"}}

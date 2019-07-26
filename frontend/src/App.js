@@ -121,8 +121,21 @@ class App extends Component {
   };
 
   render() {
-    // console.log('reservationData: ', this.state.reservationData);
-    // console.log('vehicleData: ', this.state.vehicleData);
+    console.log('reservationData: ', this.state.reservationData);
+    console.log('vehicleData: ', this.state.vehicleData);
+    // return (
+    //   <>
+    //     <Header/>
+    //     <main className='content-container'>
+    //       <AdminPanel
+    //         vehicleData={this.state.vehicleData}
+    //         reservationData={this.state.reservationData}
+    //       />
+    //     </main>
+    //   </>
+    // )
+
+
     if (!this.state.submittedLogin) {
       return (
         <>
