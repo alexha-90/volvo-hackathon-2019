@@ -93,15 +93,6 @@ class App extends Component {
   };
 
   submitReservation = (vehicle) => {
-    // const obj = {
-    //   model: vehicle.Model,
-    //   // start_time: this.state.reservationRequest.start.date,
-    //   // endTime: this.state.reservationRequest.start.date,
-    //   vin: vehicle.Vin,
-    //   startTime: this.state.reservationRequest.start.timeOfDay,
-    //   end_time_of_day: this.state.reservationRequest.end.timeOfDay,
-    // };
-
     const newObj = {
       id: uuidv1(),
       admin: this.state.accountInfo[0].Admin,
@@ -130,16 +121,6 @@ class App extends Component {
   };
 
   render() {
-    return (
-      <>
-        <Header/>
-        <main className='content-container'>
-          <DatePicker onSelectCalendarDates={this.onSelectCalendarDates}/>
-          {this.showCarPicker()}
-        </main>
-      </>
-    )
-
     // console.log('reservationData: ', this.state.reservationData);
     // console.log('vehicleData: ', this.state.vehicleData);
     if (!this.state.submittedLogin) {

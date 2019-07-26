@@ -29,15 +29,19 @@ class Login extends Component {
   render() {
     return (
       <div style={{width:"400px", margin: "0 auto", textAlign: "center"}}>
+        <br/>
+        <h2>Volvo Employee Pool Car</h2>
+        <h3>reservation system</h3>
+        <br/>
         <label
-          style={{width: "100px"}}
-          htmlFor="email">Email:</label>
+          style={{width: "120px"}}
+          htmlFor="email">Volvo Email:</label>
         <input
           type="text" id="email" name="email" onChange={(e) => this.onChange(e)} required/>
         <br/>
         <br/>
         <label
-          style={{width: "100px"}}
+          style={{width: "120px"}}
           htmlFor="password">Password:</label>
         <input type="password" id="password" name="password" onChange={(e) => this.onChange(e)} required/>
         <br/>
