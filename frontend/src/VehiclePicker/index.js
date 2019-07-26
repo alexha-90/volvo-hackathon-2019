@@ -19,6 +19,8 @@ class VehiclePicker extends Component {
         <li style={{marginBottom: "10px"}} key={index}>
           <div>{vehicle.Year} {vehicle.Model} {vehicle.Trim} {vehicle.Engine}</div>
           <div>VIN: {vehicle.Vin}</div>
+          <img width="200px" height= "100px" src={vehicle.Image} alt={vehicle.Model} />
+          <br/>
           <button onClick={() => this.onSubmit(vehicle)}>Submit request for this vehicle</button>
         </li>
       )

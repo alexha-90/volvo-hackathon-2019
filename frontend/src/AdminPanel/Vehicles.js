@@ -16,6 +16,7 @@ class VehiclePicker extends Component {
         <li style={{marginBottom: "10px"}} key={index}>
           <div>{vehicle.Year} {vehicle.Model} {vehicle.Trim} {vehicle.Engine}</div>
           <div>VIN: {vehicle.Vin}</div>
+          <img width="100px" height= "100px" src={vehicle.Image} alt={vehicle.Model} />
         </li>
       )
     }

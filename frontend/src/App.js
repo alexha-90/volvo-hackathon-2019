@@ -110,18 +110,9 @@ class App extends Component {
       health: "green",
       status: "pending",
       email: this.state.accountInfo[0].userEmail,
-
-      // user: {
-      //   userEmail: this.state.accountInfo[0].userEmail,
-      //   vehicle: {
-      //     vin: vehicle.Vin
-      //   }
-      // }
+      vin: vehicle.Vin
     };
-
-    console.log(newObj);
-    debugger;
-
+    // strapi.createEntry("reservations", newObj);
     submitReservationForReview(newObj);
   };
 
@@ -139,8 +130,8 @@ class App extends Component {
   };
 
   render() {
-    console.log('reservationData: ', this.state.reservationData);
-    console.log('vehicleData: ', this.state.vehicleData);
+    // console.log('reservationData: ', this.state.reservationData);
+    // console.log('vehicleData: ', this.state.vehicleData);
     if (!this.state.submittedLogin) {
       return (
         <main className='content-container'>
