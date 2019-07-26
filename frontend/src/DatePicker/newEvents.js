@@ -1,5 +1,3 @@
-const now = new Date()
-
 export const myEventsList = [
   {
     id: 0,

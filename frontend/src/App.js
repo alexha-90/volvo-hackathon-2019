@@ -124,11 +124,14 @@ class App extends Component {
           <Login receiveAccountInfo={this.receiveAccountInfo}/>
         </main>
       )
-    } else if (this.state.accountInfo.Name === " ") {
-      // FIXME: temp hack needed. Since valid Volvo OnCall account will have an associated userEmail
+    } else if (this.state.accountInfo.userEmail === "ccs.testcars@gmail.com") {
+      // FIXME: not working
       return (
         <main className='content-container'>
-          <AdminPanel vehicleData={this.state.vehicleData}/>
+          <AdminPanel
+            vehicleData={this.state.vehicleData}
+            reservationData={this.state.reservationData}
+          />
         </main>
       )
     } else if (this.state.loadingReservationData) {

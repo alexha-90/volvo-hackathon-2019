@@ -5,13 +5,13 @@ import Vehicles from "./Vehicles";
 import { getUsers } from "../api";
 //============================================================================//
 
-
 class AdminPanel extends Component {
   constructor() {
     super();
     this.state = {
       users: [],
-      contentToDisplay: ""
+      contentToDisplay: "",
+      globalError: false
     }
   }
 
@@ -20,7 +20,6 @@ class AdminPanel extends Component {
       .then(users => {users.json()
         .then(users => {
           this.setState({ users: users });
-          // return strapi.getEntries("reservations");
         })
         // .then(reservationData => {
         //   this.setState({ reservationData: reservationData, loadingReservationData: false });
@@ -28,7 +27,7 @@ class AdminPanel extends Component {
       })
       .catch(err => {
         console.error(err);
-        this.setState({globalError: true, loadingReservationData: false });
+        this.setState({globalError: true });
       })
   }
 
@@ -38,7 +37,7 @@ class AdminPanel extends Component {
 
   showContent = () => {
     if (this.state.contentToDisplay === "bookings") {
-      return (<Bookings/>)
+      return (<Bookings reservationData={this.props.reservationData}/>)
     } else if (this.state.contentToDisplay === "vehicles") {
       return (<Vehicles vehicles={this.props.vehicleData}/>)
     } else if (this.state.contentToDisplay === "users") {
@@ -47,22 +46,26 @@ class AdminPanel extends Component {
   };
 
   render() {
-    return (
-      <>
-        <form>
-          <input type="radio" id="bookings" name="content"
-                 value="bookings" onChange={(e) => this.onToggleDisplayRadio(e)}/>
-          <label htmlFor="bookings" style={{marginRight: "20px"}}>Bookings</label>
-          <input type="radio" id="vehicles" name="content"
-                 value="vehicles" onChange={(e) => this.onToggleDisplayRadio(e)}/>
-          <label htmlFor="vehicles" style={{marginRight: "20px"}}>Vehicles</label>
-          <input type="radio" id="users" name="content"
-                 value="users" onChange={(e) => this.onToggleDisplayRadio(e)}/>
-          <label htmlFor="users" style={{marginRight: "20px"}}>Users</label>
-        </form>
-        {this.showContent()}
-      </>
-    )
+    if (this.state.globalError) {
+      return <main>:( Error occurred while fetching information. Please try again later</main>
+    } else {
+      return (
+        <>
+          <form>
+            <input type="radio" id="bookings" name="content"
+                   value="bookings" onChange={(e) => this.onToggleDisplayRadio(e)}/>
+            <label htmlFor="bookings" style={{marginRight: "20px"}}>Bookings</label>
+            <input type="radio" id="vehicles" name="content"
+                   value="vehicles" onChange={(e) => this.onToggleDisplayRadio(e)}/>
+            <label htmlFor="vehicles" style={{marginRight: "20px"}}>Vehicles</label>
+            <input type="radio" id="users" name="content"
+                   value="users" onChange={(e) => this.onToggleDisplayRadio(e)}/>
+            <label htmlFor="users" style={{marginRight: "20px"}}>Users</label>
+          </form>
+          {this.showContent()}
+        </>
+      )
+    }
   }
 }
 

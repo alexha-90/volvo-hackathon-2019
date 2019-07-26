@@ -31,6 +31,15 @@
     },
     "end_time_of_day": {
       "type": "string"
+    },
+    "approved": {
+      "type": "boolean"
+    },
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
     }
   }
 }
