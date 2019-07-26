@@ -1,0 +1,10 @@
+.ctaButton {
+    width: 278px;
+    margin-top: 24px;
+    border-radius: 20px;
+}
+
+.ctaButton:hover {
+    background-color: darkgreen;
+    color: white;
+}

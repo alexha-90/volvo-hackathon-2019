@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import Strapi from 'strapi-sdk-javascript/build/main';
 import CarPicker from './VehiclePicker';
-import { convertStrToDate } from './util/DateFormat';
 
 import {getVehicles, submitReservationForReview} from './api';
 import DatePicker from "./DatePicker";
 import AdminPanel from "./AdminPanel";
 import Login from "./Login";
+import Header from "./Common/Header";
 //============================================================================//
 
 const strapi = new Strapi("http://localhost:1337");
@@ -52,7 +52,7 @@ class App extends Component {
 
   onSelectCalendarDates = (requested) => {
     let availableVehs;
-    const { reservationData } = this.state;
+    // const { reservationData } = this.state;
     /*
     for (let i = 0; i < reservationData.length; i++) {
       const iStartDate = convertStrToDate(reservationData[i].start_time);
@@ -134,30 +134,49 @@ class App extends Component {
     // console.log('vehicleData: ', this.state.vehicleData);
     if (!this.state.submittedLogin) {
       return (
-        <main className='content-container'>
-          <Login receiveAccountInfo={this.receiveAccountInfo}/>
-        </main>
+        <>
+          <Header/>
+            <main className='content-container'>
+              <Login receiveAccountInfo={this.receiveAccountInfo}/>
+            </main>
+        </>
       )
     } else if (this.state.accountInfo[0].userEmail === this.state.accountInfo[0].Admin) {
       // descr: authenticated as admin
       return (
-        <main className='content-container'>
-          <AdminPanel
-            vehicleData={this.state.vehicleData}
-            reservationData={this.state.reservationData}
-          />
-        </main>
+        <>
+          <Header/>
+          <main className='content-container'>
+            <AdminPanel
+              vehicleData={this.state.vehicleData}
+              reservationData={this.state.reservationData}
+            />
+          </main>
+        </>
       )
     } else if (this.state.loadingReservationData) {
-      return <div>Loading reservation data...</div>
+      return (
+        <>
+          <Header/>
+          <div>Loading reservation data...</div>
+        </>
+      )
     } else if (this.state.globalError) {
-      return <main>:( Error occurred while fetching information. Please try again later</main>
+      return (
+        <>
+          <Header/>
+          <main>:( Error occurred while fetching information. Please try again later</main>
+        </>
+      )
     } else {
       return (
-        <main className='content-container'>
-          <DatePicker onSelectCalendarDates={this.onSelectCalendarDates}/>
-          {this.showCarPicker()}
-        </main>
+        <>
+          <Header/>
+          <main className='content-container'>
+            <DatePicker onSelectCalendarDates={this.onSelectCalendarDates}/>
+            {this.showCarPicker()}
+          </main>
+        </>
       );
     }
   }

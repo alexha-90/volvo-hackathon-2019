@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { loginUser } from "../api";
+import "./index.css";
 //============================================================================//
 
 
@@ -27,13 +28,23 @@ class Login extends Component {
 
   render() {
     return (
-      <>
-        <label htmlFor="email">Email:</label>
-        <input type="text" id="email" name="email" onChange={(e) => this.onChange(e)} required/>
-        <label htmlFor="password">Password:</label>
+      <div style={{width:"400px", margin: "0 auto", textAlign: "center"}}>
+        <label
+          style={{width: "100px"}}
+          htmlFor="email">Email:</label>
+        <input
+          type="text" id="email" name="email" onChange={(e) => this.onChange(e)} required/>
+        <br/>
+        <br/>
+        <label
+          style={{width: "100px"}}
+          htmlFor="password">Password:</label>
         <input type="password" id="password" name="password" onChange={(e) => this.onChange(e)} required/>
-        <button onClick={this.onSubmit}>Login</button>
-      </>
+        <br/>
+        <button
+          className="ctaButton"
+          onClick={this.onSubmit}>Login</button>
+      </div>
     )
   }
 }
