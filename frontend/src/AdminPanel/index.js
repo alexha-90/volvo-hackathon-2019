@@ -37,7 +37,11 @@ class AdminPanel extends Component {
 
   showContent = () => {
     if (this.state.contentToDisplay === "bookings") {
-      return (<Bookings reservationData={this.props.reservationData} bookingData={this.props.bookingData}/>)
+      return (
+        <div style={{width: "100%!important"}}>
+          <Bookings reservationData={this.props.reservationData} bookingData={this.props.bookingData}/>
+        </div>
+      )
     } else if (this.state.contentToDisplay === "vehicles") {
       return (<Vehicles vehicles={this.props.vehicleData}/>)
     } else if (this.state.contentToDisplay === "users") {
